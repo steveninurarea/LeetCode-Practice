@@ -1,0 +1,19 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        # _list = [c for c in s.lower() if c.isalnum()]
+        # return _list == _list[::-1]
+
+        _list = []
+        for c in s :
+            if c.isalnum() :
+                _list.append(c.lower())
+        
+        len_s = len(_list)
+        for i in range(len_s/2) :
+            if _list[i] != _list[len_s-1-i] :
+                return False
+        return True
