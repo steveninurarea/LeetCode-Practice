@@ -1,0 +1,15 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        res = []
+        
+        for left in range(0, len(nums)-2) :
+            right = len(nums)-1
+            while left < right :
+                res.append(sum(nums[left:right+1]))
+                right -= 1
+            
+        return max(res)
