@@ -1,0 +1,17 @@
+class Solution(object):
+    def minimumCardPickup(self, cards):
+        """
+        :type cards: List[int]
+        :rtype: int
+        """
+        res = []
+        
+        for i in range(len(cards)) :
+            for j in range(i+1, len(cards)) :
+                if cards[i] == cards[j] :
+                    res.append(j-i+1)
+        
+        if not res :
+            return -1
+        else :
+            return min(res)
