@@ -1,0 +1,22 @@
+class Solution(object):
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        if rowIndex == 0 :
+            return [1]
+        
+        if rowIndex == 1 :
+            return [1, 1]
+        
+        pre = [1, 1]
+        curr = []
+        for i in range(2, rowIndex+1) :
+            curr.append(1)
+            for j in range(i-1) :
+                curr.append(pre[j]+pre[j+1])
+            curr.append(1)
+            pre = curr
+            curr = []
+        return pre
